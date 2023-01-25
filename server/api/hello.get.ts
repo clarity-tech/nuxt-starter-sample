@@ -1,6 +1,9 @@
+
+const apiBase = useRuntimeConfig().apiBase
 export default defineEventHandler(async (event) => {
     // simple TEST sample
-    const { data } = await (await fetch('https://kimshospitals.com/api/branches')).json()
+    console.log('INTERNAL SERVER/API/HELLO called with ', 'current base url used'+ apiBase)
+    const { data } = await (await fetch(`${apiBase}branches`)).json()
 
     return {
         someData: 'works',
